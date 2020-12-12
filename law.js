@@ -2,18 +2,21 @@ var audioViolated = new Audio("stop.mp3");
 var audioBlood = new Audio("blood.mp3");
 var audioBattle = new Audio("battle3.mp3");
 
-var ready = false;
+var state = 0;
 
 var dialouge;
 
-window.addEventListener("load",function(){
-	audioViolated.play();
-	ready = true;
-	dialogue = document.getElementById("dialogue");
-});
+
 window.addEventListener("click", function(){
-	if (ready == true) {
-		ready = false;
+	if (state == 0) {
+		audioViolated.play();
+		state = 1;
+		guard = document.getElementById("guard")
+		guard.src = "img/guard.jpg"
+		dialogue = document.getElementById("dialogue");
+		dialogue.innerHTML = "Stop! You violated the law. Pay the court a fine or serve your sentence. Your stolen goods are now forfeit."
+	} else if (state == 1) {
+		state = 2;
 		audioViolated.pause();
 		audioBlood.play();
 		dialogue.innerHTML = "Then Pay with your blood!"
