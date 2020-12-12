@@ -9,10 +9,10 @@ var dialouge;
 
 window.addEventListener("click", function(){
 	if (state == 0) {
+		guard.src = "img/guard.jpg"
 		audioViolated.play();
 		state = 1;
 		guard = document.getElementById("guard")
-		guard.src = "img/guard.jpg"
 		dialogue = document.getElementById("dialogue");
 		dialogue.innerHTML = "Stop! You violated the law. Pay the court a fine or serve your sentence. Your stolen goods are now forfeit."
 	} else if (state == 1) {
